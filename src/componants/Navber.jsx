@@ -6,7 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext);
     const handlelogOut = () => {
-            logOut()
+        logOut()
             .then(() => {
                 console.log('user logOut succesfully');
 
@@ -19,6 +19,14 @@ const Navber = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
+        <li><NavLink to="/orders">Orders</NavLink></li>
+        {user && <>
+
+            <li><NavLink to="/profile">Profile</NavLink></li>
+            <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+        </>
+
+        }
 
     </>
     return (
@@ -56,7 +64,7 @@ const Navber = () => {
                         <Link to="/login">
                             <div className="navbar-end">
 
-                            <button  className="btn ">login </button>
+                                <button className="btn ">login </button>
                             </div>
                         </Link>
                 }
